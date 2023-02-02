@@ -1,0 +1,36 @@
+#title {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.interface {
+    margin-top: 80px;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.draw-grid {
+    border: 5px solid white;
+    border-radius: 5px;
+    width: 500px;
+    height: 500px;
+    display: grid;
+    box-shadow: 10px 10px;
+}
+
+.grid-item {
+    border: 0.01px solid rgb(186, 186, 186);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+#size-label {
+    align-self: center;
+}
+

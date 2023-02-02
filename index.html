@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Draw</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="main.js" async></script>
+    
+    <h1 id="title">Pixel Draw</h1>
+    <div class="interface">
+        <div class="draw-grid"></div>
+        <div class="buttons">
+            <input id="brush-color" type="color" value="#000000">
+            <button id="black"> Black </button>
+            <button id="rainbow"> Rainbow </button>
+            <button id="eraser"> Eraser </button>
+            <button id="reset"> Reset </button>
+            <div id="size">
+                <input id="grid-size" type="range" min="2" max="64" value="16">
+                <label id="size-label">16 X 16</label>
+            </div>
+            <button id="download"> Download Image</button>
+        </div>
+    </div>
+</body>
+</html>
