@@ -10,6 +10,7 @@ const eraser_btn = document.querySelector('#eraser');
 const reset_btn = document.querySelector('#reset');
 const grid_size = document.querySelector('#grid-size');
 const grid_size_label = document.querySelector('#size-label');
+const buttons = document.querySelectorAll('button');
 
 let current_color = BLACK;
 let background_color = WHITE;
@@ -23,28 +24,47 @@ black_btn.addEventListener('click', () => {
     current_color = BLACK;
     color_slider.value = current_color;
     rainbow_mode = false;
+    clearButtons();
+    black_btn.classList.add('active');
 });
 
 color_slider.addEventListener('input', (e) => {
     current_color = e.srcElement.value;
     rainbow_mode = false;
+    clearButtons();
 });
 
-rainbow_btn.addEventListener('click', () => rainbow_mode = true);
+rainbow_btn.addEventListener('click', () => {
+    rainbow_mode = true;
+    clearButtons();
+    rainbow_btn.classList.add('active');
+});
 
 eraser_btn.addEventListener('click', () => {
     current_color = background_color;
     color_slider.value = current_color;
     rainbow_mode = false;
+    clearButtons();
+    eraser_btn.classList.add('active');
 });
 
-reset_btn.addEventListener('click', resetGrid);
+reset_btn.addEventListener('click', () => {
+    resetGrid();
+    clearButtons();
+    black_btn.classList.add('active');
+});
 
 grid_size.addEventListener('input', (e) => {
     const size = e.srcElement.value;
     createGrid(size);
     grid_size_label.textContent = `${size} X ${size}`;
 });
+
+
+
+function clearButtons() {
+    buttons.forEach((button) => button.classList.remove('active'));
+}
 
 function getRandomColor() {
     let chars = '0123456789ABCDEF';
@@ -93,4 +113,5 @@ function resetGrid(e) {
     color_slider.value = current_color;
 }
 
+black_btn.classList.add('active');
 createGrid(grid_size.value);
