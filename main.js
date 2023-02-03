@@ -64,6 +64,7 @@ function createGrid(size) {
     for (let i = 0; i < size * size; i++) {
         let div = document.createElement('div');
         div.classList.add('grid-item');
+        div.style['background-color'] = WHITE;
         div.addEventListener('mouseenter', pixelDrawHover);
         div.addEventListener('mousedown', pixelDraw);
         grid.appendChild(div);
