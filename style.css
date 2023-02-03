@@ -36,6 +36,11 @@ body {
 
 .grid-item {
     border: 0.01px solid rgb(0, 0, 0);
+    outline: none;
+}
+
+.grid-item.no-lines {
+    border: none;
 }
 
 .buttons {
@@ -117,3 +122,28 @@ input[type=range]::-webkit-slider-thumb {
     align-self: center;
 }
 
+#grid-option {
+    margin-top: -30px;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#option-text {
+    font-size: 16pt;
+}
+
+#option-buttons {
+    display: flex; 
+    gap: 15px;
+}
+
+#option-buttons>button {
+    min-width: 60px;
+    text-align: center;
+}
+
+#grid-option.active-dl  {
+    visibility: visible;
+}

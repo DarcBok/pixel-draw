@@ -11,6 +11,8 @@ const reset_btn = document.querySelector('#reset');
 const grid_size = document.querySelector('#grid-size');
 const grid_size_label = document.querySelector('#size-label');
 const download_btn = document.querySelector('#download');
+const dl_interface = document.querySelector('#grid-option');
+const grid_options = document.querySelector('#grid-option').querySelectorAll('button');
 const buttons = document.querySelectorAll('button');
 
 let current_color = BLACK;
@@ -62,11 +64,20 @@ grid_size.addEventListener('input', (e) => {
 });
 
 download_btn.addEventListener('click', () => {
+    dl_interface.classList.add('active-dl');
+    
+});
+
+grid_options.forEach((button) => (button).addEventListener('click', (e) => {
+    if (e.srcElement.id == "yes") removeGridLines();
     html2canvas(canvas).then(canvas => {
         let img = canvas.toDataURL();
         downloadURL(img, "yourImage.png")
     });
-});
+    dl_interface.classList.remove('active-dl');
+    replaceGridLines();
+})
+);
 
 function downloadURL(url, name) {
     // Creates a dynamic link that removes itself
@@ -127,6 +138,20 @@ function resetGrid(e) {
     });
     current_color = BLACK;
     color_slider.value = current_color;
+}
+
+function removeGridLines() {
+    const cells = canvas.querySelectorAll('*');
+    cells.forEach((cell) => {
+        cell.classList.add('no-lines');
+    })
+}
+
+function replaceGridLines() {
+    const cells = canvas.querySelectorAll('*');
+    cells.forEach((cell) => {
+        cell.classList.remove('no-lines');
+    })
 }
 
 black_btn.classList.add('active');
