@@ -53,8 +53,6 @@ eraser_btn.addEventListener('click', () => {
 
 reset_btn.addEventListener('click', () => {
     resetGrid();
-    clearButtons();
-    black_btn.classList.add('active');
 });
 
 grid_size.addEventListener('input', (e) => {
@@ -72,7 +70,7 @@ grid_options.forEach((button) => (button).addEventListener('click', (e) => {
     if (e.srcElement.id == "yes") removeGridLines();
     html2canvas(canvas).then(canvas => {
         let img = canvas.toDataURL();
-        downloadURL(img, "yourImage.png")
+        downloadURL(img, "Image.png")
     });
     dl_interface.classList.remove('active-dl');
     replaceGridLines();
