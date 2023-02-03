@@ -10,6 +10,7 @@ const eraser_btn = document.querySelector('#eraser');
 const reset_btn = document.querySelector('#reset');
 const grid_size = document.querySelector('#grid-size');
 const grid_size_label = document.querySelector('#size-label');
+const download_btn = document.querySelector('#download');
 const buttons = document.querySelectorAll('button');
 
 let current_color = BLACK;
@@ -60,7 +61,22 @@ grid_size.addEventListener('input', (e) => {
     grid_size_label.textContent = `${size} X ${size}`;
 });
 
+download_btn.addEventListener('click', () => {
+    html2canvas(canvas).then(canvas => {
+        let img = canvas.toDataURL();
+        downloadURL(img, "yourImage.png")
+    });
+});
 
+function downloadURL(url, name) {
+    // Creates a dynamic link that removes itself
+    let link = document.createElement('a');
+    link.download = name;
+    link.href = url;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+}
 
 function clearButtons() {
     buttons.forEach((button) => button.classList.remove('active'));
