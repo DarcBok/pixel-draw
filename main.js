@@ -53,6 +53,11 @@ eraser_btn.addEventListener('click', () => {
 
 reset_btn.addEventListener('click', () => {
     resetGrid();
+    current_color = BLACK;
+    color_slider.value = current_color;
+    rainbow_mode = false;
+    clearButtons();
+    black_btn.classList.add('active');
 });
 
 grid_size.addEventListener('input', (e) => {
@@ -134,8 +139,6 @@ function resetGrid(e) {
     cells.forEach((cell) => {
         cell.style["background-color"] = background_color;
     });
-    current_color = BLACK;
-    color_slider.value = current_color;
 }
 
 function removeGridLines() {
