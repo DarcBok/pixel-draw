@@ -1,4 +1,4 @@
-# pixel-draw
+# Pixel Draw
 
 A tool made for drawing pixel art directly on the browser!
 
